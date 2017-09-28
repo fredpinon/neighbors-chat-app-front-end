@@ -1,0 +1,8 @@
+.Main {
+  background-color: #8BD1E8;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  border-radius: 3px;
+}

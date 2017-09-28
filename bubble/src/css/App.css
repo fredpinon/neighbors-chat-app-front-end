@@ -9,3 +9,9 @@
   display: flex;
   justify-content: center;
 }
+
+.MainWrapper {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
