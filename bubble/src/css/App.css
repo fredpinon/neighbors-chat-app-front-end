@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F8F9F9;
+}
+
+.NavWrapper {
+  display: flex;
+  justify-content: center;
+}

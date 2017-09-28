@@ -1,0 +1,66 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #f8f9f9;
+  border-bottom: 1px solid #fff;
+}
+
+.Logo {
+  font-size: 3em;
+  padding: 0.5em;
+  cursor: pointer;
+  font-family: 'Monda', sans-serif;
+}
+
+.Logo a {
+  color: #7c7d7d;
+}
+
+.NavBarButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.NavBarButtons > * {
+  font-size: 1.5em;
+  padding: .8em 1.4em;
+  box-shadow: 0 2px 0 #cdd2d4;
+  border-radius: .4em;
+  cursor: pointer;
+}
+
+.NavBarButtons a {
+  color: #4d4d4d;
+}
+
+.LogButtons {
+  background-color: #e2e4e6;
+  margin-right: 0.5em;
+}
+
+.LogButtons:hover {
+  background-color: #d6dadc;
+  box-shadow: 0 2px 0 #c4c9cc;
+}
+
+.ProfileButtons {
+  background-color: #5aac44;
+  margin: 0 0.5em;
+}
+
+.ProfileButtons:hover {
+  background: linear-gradient(to bottom, #5aac44 0, #519839 100%);
+  box-shadow: 0 2px 0 #3f6f21;
+}
+
+@media (max-width: 400px) {
+  .Logo {
+    font-size: 2em;
+  }
+  .NavBarButtons > * {
+    font-size: 1em;
+  }
+}
