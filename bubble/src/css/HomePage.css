@@ -1,0 +1,70 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 100%;
+  font-family: 'Metrophobic', sans-serif;
+}
+
+#Welcome {
+  font-size: 2em;
+  margin-top: 4em;
+  color: #4d4d4d;
+  text-align: center;
+}
+
+.NeighborsSearchComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin-bottom: 2em;
+}
+
+.NeighborsSearchComponent p {
+  font-size: 2em;
+  margin-top: 1.5em;
+  color: #F8F9F9;
+}
+
+.NeighborsSearchComponent form {
+  display: flex;
+  width: 100%;
+}
+
+#SearchContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#InputContainer {
+  width: 80%;
+}
+
+#SearchButton {
+  padding: 0 1.4em;
+  border-radius: .4em;
+  cursor: pointer;
+  background-color: #e2e4e6;
+  color: #4d4d4d;
+  border: none;
+}
+
+#SearchButton:hover {
+  color: #4d4d4d;
+  background-color: #d6dadc;
+}
+
+#results {
+  font-size: 2em;
+}
+
+@media (max-width:400px) {
+  #Welcome {
+    font-size: 1.5em;
+  }
+  .NeighborsSearchComponent p {
+    font-size: 1.5em;
+  }
+}

@@ -1,69 +1,70 @@
 import React, {Component} from 'react';
-// import CircularProgress from 'material-ui/CircularProgress';
-// import NeighborsSearchComponent from '../components/NeighborsSearchComponent';
-// import { searchNeighbors } from '../serverApi';
-// import { connect } from 'react-redux';
+import CircularProgress from 'material-ui/CircularProgress';
+
+import '../css/HomePage.css';
+import NeighborsSearchComponent from '../components/NeighborsSearchComponent';
+import { searchNeighbors } from '../serverApi';
 
 class HomePage extends Component {
 
-  // state = {
-  //   renderProgress: null,
-  //   activeNeighbors: null,
-  //   showResults: false,
-  // }
+  state = {
+    renderProgress: null,
+    activeNeighbors: null,
+    showResults: false,
+  }
 
-  // componentWillMount () {
-  //   if (this.props.userInfo.token) this.props.history.push('chat');
-  // }
-  //
-  // handleSearch = (address) => {
-  //   this.setState({showResults:false});
-  //   searchNeighbors(address)
-  //   .then(data => data.json())
-  //   .then(data => {
-  //     this.setState({activeNeighbors:data});
-  //     this.setState({renderProgress:true});
-  //   });
-  // }
+  handleSearch = (searchString) => {
+    this.setState({
+      activeNeighbors: null,
+      showResults: false
+    });
+    this.setState({renderProgress: true});
+    searchNeighbors(searchString)
+    .then(data => new Promise((resolve, reject) => {
+      setTimeout(() => resolve(data), 3000);
+    }))
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        renderProgress: null,
+        activeNeighbors: data,
+        showResults: true
+      });
+    });
+  }
 
-  // renderProgress = () => {
-  //   setTimeout(() => {
-  //     this.setState({renderProgress:null});
-  //     this.setState({showResults:true});
-  //   }, 3000);
-  //   return (
-  //     <div id="progress">
-  //       <CircularProgress />
-  //       <p>searching ...</p>
-  //     </div>
-  //   );
-  // }
+  renderProgress = () => {
+    return (
+      <div id="progress">
+        <CircularProgress />
+        <p>searching ...</p>
+      </div>
+    );
+  }
 
-  // renderResults = () => {
-  //   const { activeNeighbors } = this.state;
-  //   const s = activeNeighbors > 1 ? 's' : '';
-  //   const answer = activeNeighbors === 0 ?
-  //     `You don't have any active neighbors ... :(` :
-  //     `You have ${this.state.activeNeighbors} active neighbor${s}!`;
-  //   return (
-  //     <div id="results">
-  //       <p>{answer}</p>
-  //     </div>
-  //   );
-  // }
+  renderResults = () => {
+    const { activeNeighbors } = this.state;
+    const s = activeNeighbors > 1 ? 's' : '';
+    const answer = activeNeighbors === 0 ?
+      `You don't have any active neighbors ... :(` :
+      `You have ${this.state.activeNeighbors} active neighbor${s}!`;
+    return (
+      <div id="results">
+        <p>{answer}</p>
+      </div>
+    );
+  }
 
   render() {
     return (
       <div className="HomePage">
-        
+        <p id="Welcome">Welcome to Bubble! Sign up and start meeting your neighbors</p>
+        <NeighborsSearchComponent handleSearch={this.handleSearch}/>
+        {this.state.renderProgress !== null ? this.renderProgress() : ' '}
+        {this.state.showResults === true ? this.renderResults() : ' '}
       </div>
-
     );
   }
 }
 
-// <p>Welcome to Bubble! Sign up and start meeting your neighbors</p>
-// <NeighborsSearchComponent handleSearch={this.handleSearch}/>
-// {this.state.renderProgress !== null ? this.renderProgress() : ' '}
-// {this.state.showResults === true ? this.renderResults() : ' '}
 export default HomePage;
