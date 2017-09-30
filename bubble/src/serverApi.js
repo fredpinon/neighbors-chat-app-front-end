@@ -11,3 +11,14 @@ export function searchNeighbors (searchString) {
   const config = new Request (url.href, {method: 'GET'});
   return fetch(config);
 }
+
+export function registerNewUser (data) {
+  const config = new Request ('http://localhost:4000/signup', {
+      method: 'POST',
+      body : JSON.stringify(data),
+	    headers: new Headers({
+		    'Content-Type': 'application/json'
+	    })
+    })
+  return fetch(config);
+}

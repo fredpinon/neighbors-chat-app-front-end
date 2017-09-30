@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import NeighborsSearchContainer from '../containers/NeighborsSearchContainer';
+import AddressAutoComplete from '../containers/AddressAutoComplete';
 
-class NeighborsSearchComponent extends Component {
+class NeighborsSearch extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -11,12 +11,12 @@ class NeighborsSearchComponent extends Component {
 
   render() {
     return (
-      <div className="NeighborsSearchComponent">
+      <div className="NeighborsSearch">
         <p>Check who is active in your building:</p>
         <form onSubmit={this.handleFormSubmit}>
           <div id="SearchContainer">
             <div id="InputContainer">
-              <NeighborsSearchContainer ref={(input) => this.input = input} height="30px"/>
+              <AddressAutoComplete ref={(input) => this.input = input} height="30px"/>
             </div>
             <button type="submit" id="SearchButton">Search</button>
           </div>
@@ -27,4 +27,4 @@ class NeighborsSearchComponent extends Component {
 
 }
 
-export default NeighborsSearchComponent;
+export default NeighborsSearch;

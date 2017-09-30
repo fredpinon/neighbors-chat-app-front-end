@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import '../css/HomePage.css';
-import NeighborsSearchComponent from '../components/NeighborsSearchComponent';
+import NeighborsSearch from '../components/NeighborsSearch';
 import { searchNeighbors } from '../serverApi';
 
 class HomePage extends Component {
@@ -35,7 +35,7 @@ class HomePage extends Component {
 
   renderProgress = () => {
     return (
-      <div id="progress">
+      <div className="Progress">
         <CircularProgress />
         <p>searching ...</p>
       </div>
@@ -59,7 +59,7 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         <p id="Welcome">Welcome to Bubble! Sign up and start meeting your neighbors</p>
-        <NeighborsSearchComponent handleSearch={this.handleSearch}/>
+        <NeighborsSearch handleSearch={this.handleSearch}/>
         {this.state.renderProgress !== null ? this.renderProgress() : ' '}
         {this.state.showResults === true ? this.renderResults() : ' '}
       </div>

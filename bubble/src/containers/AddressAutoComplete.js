@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-class NeighborsSearchContainer extends Component {
+class AddressAutoComplete extends Component {
   constructor(props) {
     super(props)
     this.state = { address: '' }
@@ -37,4 +37,4 @@ class NeighborsSearchContainer extends Component {
   }
 }
 
-export default NeighborsSearchContainer;
+export default AddressAutoComplete;
