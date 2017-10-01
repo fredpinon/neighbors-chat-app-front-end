@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { userLoggedOut, userDeletedAccount } from '../actions';
+import { socketDisconnect } from '../actions/socketActions';
 
 import { logoutUser, deleteUser } from '../serverApi';
 
@@ -13,6 +14,7 @@ class NavBarButtons extends Component {
     logoutUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
+      this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchLogOut(this.props.userInfo);
     });
   }
@@ -22,6 +24,7 @@ class NavBarButtons extends Component {
     deleteUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
+      this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchDeleteUser(this.props.userInfo);
     });
   }
@@ -64,6 +67,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   dispatchLogOut: data => dispatch(userLoggedOut(data)),
   dispatchDeleteUser: data => dispatch(userDeletedAccount(data)),
+  dispatchSocketDisconnect: data => dispatch(socketDisconnect(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBarButtons);

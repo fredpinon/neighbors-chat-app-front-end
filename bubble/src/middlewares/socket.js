@@ -6,13 +6,18 @@ export default store => {
   let socket;
 
   const connect = data => {
-    console.log('Connecting to socket.io…');
     socket = io('http://localhost:4000');
     socketIOWildcard(io.Manager)(socket);
     socket.emit('SOCKET__CONNECT', data);
     socket.on('ACTION', action => {
+      console.log(action);
       store.dispatch(action);
     })
+  }
+
+  const disconnect = (data) => {
+    socket.emit('SOCKET__DISCONNECT', data);
+    socket.disconnect();
   }
 
   // const emitTyping = (info) => {
@@ -31,11 +36,6 @@ export default store => {
   //   socket.emit('get-messages', address);
   // }
   //
-  // const disconnect = (address) => {
-  //   socket.emit('user-disconnected', address);
-  //   console.log('Disconnecting from socket.io…');
-  //   socket.disconnect();
-  // }
   //
   // const state = store.getState();
   // const token = state.user.token
@@ -50,9 +50,10 @@ export default store => {
       case 'SOCKET__CONNECT':
         connect(action.data)
         break;
-      // case 'SOCKET__DISCONNECT':
-      //   disconnect(action.address)
-      //   break;
+      case 'SOCKET__DISCONNECT':
+        console.log(action);
+        disconnect(action.data)
+        break;
       // case 'SOCKET__MESSAGE':
       //   saveMessage(action.payload)
       //   break;

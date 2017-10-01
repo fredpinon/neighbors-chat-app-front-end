@@ -12,8 +12,9 @@ const users = (state = {}, action) => {
         ...objectifyArray(action.data)
       }
     case 'USER_LIST_STATUS_CHANGE':
+    console.log(action.data);
       return objectifyArray(action.data);
-    case 'NEW_USER_CONNECTED':
+    // case 'NEW_USER_CONNECTED':
       // const email = action.data.email;
       // return {
       //   ...state,

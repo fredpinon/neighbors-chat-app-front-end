@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import { connect } from 'react-redux';
 import { userLoggedIn } from '../actions';
+import { socketConnect } from '../actions/socketActions';
 
 import LogInPageComponent from '../components/LoginPageComponent';
 import { loginUserServerApi } from '../serverApi';
@@ -32,6 +33,7 @@ class LoginPageContainer extends Component {
       if (data === 'wrong credentials') this.setState({wrongCredentials: true});
       else {
         this.props.dispatchUserInfo(data);
+        this.props.dispatchSocketConnect(data);
         this.props.history.push('chat');
       }
     });
@@ -54,6 +56,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchUserInfo: data => dispatch(userLoggedIn(data)),
+  dispatchSocketConnect: data => dispatch(socketConnect(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPageContainer);
