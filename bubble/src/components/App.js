@@ -5,7 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import '../css/App.css';
 import NavBar from './NavBar';
-import Main from './Main';
+import Main from '../containers/Main';
 
 const muiTheme = getMuiTheme({
   palette: {

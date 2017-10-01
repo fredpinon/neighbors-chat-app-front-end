@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux';
+import { userLoggedIn } from '../actions';
+
 import LogInPageComponent from '../components/LoginPageComponent';
 import { loginUserServerApi } from '../serverApi';
 
@@ -10,9 +13,9 @@ class LoginPageContainer extends Component {
     renderProgress: false,
   }
 
-  // componentWillMount () {
-  //   if (this.props.userInfo.token) this.props.history.push('chat');
-  // }
+  componentWillMount () {
+    if (this.props.userInfo.token) this.props.history.push('chat');
+  }
 
   loginUser = (info) => {
     this.setState({
@@ -27,7 +30,10 @@ class LoginPageContainer extends Component {
     .then(data => {
       this.setState({renderProgress: false});
       if (data === 'wrong credentials') this.setState({wrongCredentials: true});
-      else this.props.history.push('chat');
+      else {
+        this.props.dispatchUserInfo(data);
+        this.props.history.push('chat');
+      }
     });
   }
 
@@ -42,4 +48,12 @@ class LoginPageContainer extends Component {
   }
 }
 
-export default LoginPageContainer;
+const mapStateToProps = (state) => ({
+  userInfo: state.user,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatchUserInfo: (data) => dispatch(userLoggedIn(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPageContainer);

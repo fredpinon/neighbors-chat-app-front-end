@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
+import { connect } from 'react-redux';
+
 import '../css/HomePage.css';
 import NeighborsSearch from '../components/NeighborsSearch';
 import { searchNeighbors } from '../serverApi';
@@ -11,6 +13,10 @@ class HomePage extends Component {
     renderProgress: null,
     activeNeighbors: null,
     showResults: false,
+  }
+
+  componentWillMount () {
+    if (this.props.userInfo.token) this.props.history.push('chat');
   }
 
   handleSearch = (searchString) => {
@@ -67,4 +73,10 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => ({
+  userInfo: state.user,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
