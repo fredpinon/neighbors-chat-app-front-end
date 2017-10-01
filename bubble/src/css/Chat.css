@@ -83,3 +83,84 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+/*USERS*/
+
+.User {
+  display: flex;
+  padding: 0.5em 1em;
+  border-bottom: solid 1px #fff;
+  min-height: 50px;
+}
+
+.userDetails {
+  display: flex;
+  align-items: center;
+}
+
+.userDetails span {
+  font-style: italic;
+  color: #7C7D7D;
+}
+
+.userDetails p {
+  margin: 0 1em 0;
+  font-size: 1.3em;
+}
+
+.online {
+  width: 1em;
+  max-width: 10px;
+  height: 1em;
+  max-height: 10px;
+  background-color: #4ca64c;
+  border-radius: 50px;
+}
+
+.offline {
+  width: 1em;
+  max-width: 10px;
+  height: 1em;
+  max-height: 10px;
+  background-color: #ff4c4c;
+  border-radius: 50px;
+}
+
+.pic {
+  width: 3em;
+  max-width: 45px;
+  height: 3em;
+  max-height: 45px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Monda', sans-serif;
+  display: flex;
+  font-size: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 750px) {
+  .User {
+    padding: 0.5em;
+    min-height: 30px;
+  }
+  .Messages {
+    flex: 2;
+    min-width: 300px;
+  }
+  .UsersList {
+    min-width: 200px;
+  }
+
+}
+
+@media(max-width: 500px) {
+  .User > * {
+    font-size: 0.7em;
+  }
+  .UsersList {
+    min-width: 0;
+  }
+}

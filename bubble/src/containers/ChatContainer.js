@@ -15,7 +15,6 @@ class ChatContainer extends Component {
   }
 
   fetchAllUsers () {
-    console.log(this.props.userInfo.details.address);
     getAllUsers(this.props.userInfo.details.address)
     .then(data => data.json())
     .then(data => this.props.dispatchUsersList(data));
