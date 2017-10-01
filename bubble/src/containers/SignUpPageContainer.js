@@ -53,7 +53,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchUserInfo: (data) => dispatch(userLoggedIn(data)),
+  dispatchUserInfo: data => dispatch(userLoggedIn(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPageContainer);

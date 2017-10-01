@@ -36,3 +36,17 @@ export function loginUserServerApi (data) {
     })
   return fetch(config);
 }
+
+export function logoutUser (data) {
+  const config = new Request (`http://localhost:4000/logout/:${data}`, {
+      method: 'PUT',
+    })
+  return fetch(config);
+}
+
+export function deleteUser (data) {
+  const config = new Request (`http://localhost:4000/deleteUser/:${data}`, {
+      method: 'DELETE',
+    })
+  return fetch(config);
+}
