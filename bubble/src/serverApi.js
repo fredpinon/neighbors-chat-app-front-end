@@ -50,3 +50,10 @@ export function deleteUser (data) {
     })
   return fetch(config);
 }
+
+export function getAllUsers (data) {
+  const config = new Request (`http://localhost:4000/getAllUsers/:${data}`, {
+      method: 'GET',
+    })
+  return fetch(config);
+}

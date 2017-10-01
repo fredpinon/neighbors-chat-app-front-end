@@ -12,3 +12,8 @@ export const userDeletedAccount = data => ({
   type: 'USER_DELETED_ACCOUNT',
   data
 });
+
+export const getUsersList = data => ({
+  type: 'ALL_USERS',
+  data
+});
