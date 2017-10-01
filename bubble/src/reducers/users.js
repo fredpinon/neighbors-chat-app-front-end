@@ -13,15 +13,6 @@ const users = (state = {}, action) => {
       }
     case 'USER_LIST_STATUS_CHANGE':
       return objectifyArray(action.data);
-    // case 'NEW_USER_CONNECTED':
-      // const email = action.data.email;
-      // return {
-      //   ...state,
-      //   [email]: {
-      //     ...state[email],
-      //     online: true,
-      //   }
-      // }
     default:
       return state;
   }

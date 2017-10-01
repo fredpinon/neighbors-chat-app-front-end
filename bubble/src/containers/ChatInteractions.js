@@ -16,9 +16,10 @@ class ChatInteractions extends Component {
   }
 
   render() {
+    const { username, flat, avatar_color} = this.props.userInfo.details;
     return (
       <div className="ChatInteractions">
-        <ChatMessages/>
+        <ChatMessages flat={flat} username={username} color={avatar_color} messages={this.props.messages}/>
         <ChatSendMessage sendMessage={this.sendMessage}/>
       </div>
     );
@@ -27,7 +28,7 @@ class ChatInteractions extends Component {
 
 const mapStateToProps = (state) => ({
   userInfo: state.user,
-  conversation: state.messages,
+  messages: state.messages,
 });
 
 const mapDispatchToProps = (dispatch) => ({

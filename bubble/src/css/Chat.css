@@ -141,6 +141,42 @@
   justify-content: center;
 }
 
+/*Messages*/
+
+.userMsg {
+  align-self: flex-end;
+  margin-right: 1em;
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  max-width: 60%;
+  flex-wrap: wrap;
+  font-size: 1.2em;
+}
+
+.neighborsMsg {
+  align-self: flex-start;
+  margin-left: 1em;
+  margin-right: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  max-width: 60%;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  font-size: 1.2em;
+  align-items: baseline;
+}
+
+.neighborsMsg p {
+  margin: 0;
+}
+
+.neighborsMsg span {
+  opacity: 0.5;
+  color: #4d4d4d;
+  font-size: 0.7em;
+}
+
 @media(max-width: 750px) {
   .User {
     padding: 0.5em;
@@ -156,11 +192,19 @@
 
 }
 
-@media(max-width: 500px) {
+@media(max-width: 400px) {
   .User > * {
     font-size: 0.7em;
   }
   .UsersList {
     min-width: 0;
+  }
+
+  .userMsg {
+    font-size: 0.9em;
+  }
+
+  .neighborsMsg {
+    font-size: 0.9em;
   }
 }

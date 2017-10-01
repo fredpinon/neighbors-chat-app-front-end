@@ -19,25 +19,13 @@ export default store => {
     socket.disconnect();
   }
 
-  const getMessages = data => {
-    socket.emit('GET-MESSAGES', data);
-  }
+  const getMessages = data => socket.emit('GET-MESSAGES', data);
 
-  const broadcastMessage = data => {
-    socket.emit('NEW__MESSAGE', data);
-  }
+  const broadcastMessage = data => socket.emit('NEW__MESSAGE', data);
 
-  // const emitTyping = (info) => {
-  //   socket.emit('is-typing', info);
-  // }
-  //
-  // const emitStopedTyping = (info) => {
-  //   socket.emit('stoped-typing', info);
-  // }
-  //
-  //
-  //
-  //
+  // const emitTyping = data => socket.emit('is-typing', data);
+
+  // const emitStopedTyping = data => socket.emit('stoped-typing', data);
 
   const state = store.getState();
   const token = state.user.token
@@ -53,7 +41,6 @@ export default store => {
         connect(action.data)
         break;
       case 'SOCKET__DISCONNECT':
-        console.log(action);
         disconnect(action.data)
         break;
       case 'SOCKET__MESSAGE':
