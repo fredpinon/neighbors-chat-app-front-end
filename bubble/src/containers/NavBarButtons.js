@@ -1,9 +1,21 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
 class NavBarButtons extends Component {
-  render () {
-    return (
+
+  renderButtons = () => {
+    return this.props.userInfo.token ? (
+      <div className="NavBarButtons">
+        <div className="LogButtons">
+          <Link to='login'>Log Out</Link>
+        </div>
+        <div className="ProfileButtons">
+          <a>Delete Account</a>
+        </div>
+      </div>
+    ) : (
       <div className="NavBarButtons">
         <div className="LogButtons">
           <Link to='login'>Log In</Link>
@@ -14,6 +26,20 @@ class NavBarButtons extends Component {
       </div>
     )
   }
+
+  render () {
+    return (
+      <div className="NavBarButtonsContainer">
+        {this.renderButtons()}
+      </div>
+    )
+  }
 }
 
-export default NavBarButtons;
+const mapStateToProps = (state) => ({
+  userInfo: state.user,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarButtons);

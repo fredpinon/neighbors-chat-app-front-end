@@ -18,6 +18,11 @@
   color: #7c7d7d;
 }
 
+.NavBarButtonsContainer {
+  display: flex;
+  align-items: center;
+}
+
 .NavBarButtons {
   display: flex;
   align-items: center;
