@@ -22,7 +22,6 @@ class NavBarButtons extends Component {
     deleteUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
-      console.log(data);
       this.props.dispatchDeleteUser(this.props.userInfo);
     });
   }
