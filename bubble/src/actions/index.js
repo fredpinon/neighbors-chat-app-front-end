@@ -7,3 +7,8 @@ export const userLoggedOut = data => ({
   type: 'USER_LOGGED_OUT',
   data
 });
+
+export const userDeletedAccount = data => ({
+  type: 'USER_DELETED_ACCOUNT',
+  data
+});

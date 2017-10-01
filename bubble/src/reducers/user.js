@@ -6,7 +6,6 @@ const user = (state = {}, action) => {
         ...action.data,
       }
     case 'USER_LOGGED_OUT':
-    console.log(action);
     return {
       ...user,
         details : {
@@ -14,6 +13,8 @@ const user = (state = {}, action) => {
           online: false
         }
       }
+    case 'USER_DELETED_ACCOUNT':
+    return {}
     default:
       return state;
   }
