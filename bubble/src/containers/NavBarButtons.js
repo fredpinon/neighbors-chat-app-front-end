@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { userLoggedOut, userDeletedAccount } from '../actions';
-import { socketDisconnect } from '../actions/socketActions';
+import { socketDisconnect, broadcastStoppedTyping } from '../actions/socketActions';
 
 import { logoutUser, deleteUser } from '../serverApi';
 
@@ -14,8 +14,11 @@ class NavBarButtons extends Component {
     logoutUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
+      const {username, fname, lname, address} = this.props.userInfo;
+      const payload = {username, fname, lname, address};
       this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchLogOut(this.props.userInfo);
+      this.props.dispatchSocketStoppedTyping(payload);
     });
   }
 
@@ -24,8 +27,11 @@ class NavBarButtons extends Component {
     deleteUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
+      const {username, fname, lname, address} = this.props.userInfo;
+      const payload = {username, fname, lname, address};
       this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchDeleteUser(this.props.userInfo);
+      this.props.dispatchSocketStoppedTyping(payload);
     });
   }
 
@@ -68,6 +74,7 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchLogOut: data => dispatch(userLoggedOut(data)),
   dispatchDeleteUser: data => dispatch(userDeletedAccount(data)),
   dispatchSocketDisconnect: data => dispatch(socketDisconnect(data)),
+  dispatchSocketStoppedTyping: data => dispatch(broadcastStoppedTyping(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBarButtons);

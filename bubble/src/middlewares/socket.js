@@ -23,9 +23,9 @@ export default store => {
 
   const broadcastMessage = data => socket.emit('NEW__MESSAGE', data);
 
-  // const emitTyping = data => socket.emit('is-typing', data);
+  const emitTyping = data => socket.emit('IS_TYPING', data);
 
-  // const emitStopedTyping = data => socket.emit('stoped-typing', data);
+  const emitStoppedTyping = data => socket.emit('STOPPED_TYPING', data);
 
   const state = store.getState();
   const token = state.user.token
@@ -49,12 +49,12 @@ export default store => {
       case 'SOCKET__GET__MESSAGES':
         getMessages(action.data)
         break;
-      // case 'IS_TYPING':
-      //   emitTyping(action.payload)
-      //   break;
-      // case 'STOPED_TYPING':
-      //   emitStopedTyping(action.payload)
-      //   break;
+      case 'IS_TYPING':
+        emitTyping(action.data)
+        break;
+      case 'STOPPED_TYPING':
+        emitStoppedTyping(action.data)
+        break;
       default:
     }
 
