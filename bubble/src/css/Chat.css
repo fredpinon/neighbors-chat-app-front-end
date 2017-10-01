@@ -1,0 +1,85 @@
+.ChatContainer {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.UsersList {
+  display: flex;
+  flex-direction: column;
+  flex:2;
+  border-right: solid 1px #fff;
+  background-color: #f1f3f4;
+  overflow: scroll;
+}
+
+.ChatInteractions {
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+}
+
+.MessagesContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em 0.5em;
+}
+
+.Messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #f1f3f4;
+  padding-bottom: 0.5em;
+  overflow: scroll;
+}
+
+.Messages > * {
+  margin-top: 0.5em;
+}
+
+.IsTypingContainer {
+  margin-top: 0.3em;
+  height: 4%;
+  display: flex;
+  min-height: 20px;
+}
+
+.isTyping {
+  padding: 2px 4px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #7C7D7D;
+}
+
+.SendBar {
+  border-top: 1px solid #fff;
+  display: flex;
+  max-height: 50px;
+  flex:1;
+}
+
+.SendBar input {
+  flex: 5;
+  font-size: 1.5em;
+}
+
+.SendBar div {
+  background: linear-gradient(45deg, #61bd4f 0, #5aac44 100%);
+  flex: 1;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Monda', sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
