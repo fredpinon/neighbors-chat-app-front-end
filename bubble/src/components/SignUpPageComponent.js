@@ -34,37 +34,37 @@ class SignUpPageComponent extends Component {
         <p id="SignUpP">Sign up to Bubble</p>
         <form className="SignUpForm" onSubmit={this.captureInfo}>
           <input
-            ref={(input) => this.firstname = input}
+            ref={input => this.firstname = input}
             type="text"
             placeholder="first name.."
             required
             />
           <input
-            ref={(input) => this.lastname = input}
+            ref={input => this.lastname = input}
             type="text"
             placeholder="last name.."
             required
             />
           <input
-            ref={(input) => this.username = input}
+            ref={input => this.username = input}
             type="text"
             placeholder="user name.."
             required
             />
           <input
-            ref={(input) => this.password = input}
+            ref={input => this.password = input}
             type="password"
             placeholder="password.."
             required
             />
           <input
-            ref={(input) => this.flat = input}
+            ref={input => this.flat = input}
             type="text"
             placeholder="flat.."
             required
             />
           <AddressAutoComplete
-            ref={(input) => this.address = input}
+            ref={input => this.address = input}
             />
           <button type="submit" id="SignUpButton">Sign Up</button>
         </form>

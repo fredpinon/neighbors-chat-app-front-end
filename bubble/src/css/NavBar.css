@@ -26,7 +26,7 @@
 
 .NavBarButtons > * {
   font-size: 1.5em;
-  padding: .8em 1.4em;
+  padding: .5em 1em;
   box-shadow: 0 2px 0 #cdd2d4;
   border-radius: .4em;
   cursor: pointer;

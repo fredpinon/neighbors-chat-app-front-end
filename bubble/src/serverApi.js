@@ -1,3 +1,5 @@
+import base64 from 'base-64';
+
 export function searchNeighbors (searchString) {
   const url = new URL('http://localhost:4000/search');
   const address = searchString
@@ -18,6 +20,18 @@ export function registerNewUser (data) {
       body : JSON.stringify(data),
 	    headers: new Headers({
 		    'Content-Type': 'application/json'
+	    })
+    })
+  return fetch(config);
+}
+
+export function loginUserServerApi (data) {
+  const config = new Request ('http://localhost:4000/login', {
+      method: 'POST',
+      body : JSON.stringify(data),
+	    headers: new Headers({
+		    'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + base64.encode(data.username + ":" + data.password)
 	    })
     })
   return fetch(config);
