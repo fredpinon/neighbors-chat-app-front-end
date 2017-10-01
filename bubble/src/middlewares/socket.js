@@ -10,14 +10,21 @@ export default store => {
     socketIOWildcard(io.Manager)(socket);
     socket.emit('SOCKET__CONNECT', data);
     socket.on('ACTION', action => {
-      console.log(action);
       store.dispatch(action);
     })
   }
 
-  const disconnect = (data) => {
+  const disconnect = data => {
     socket.emit('SOCKET__DISCONNECT', data);
     socket.disconnect();
+  }
+
+  const getMessages = data => {
+    socket.emit('GET-MESSAGES', data);
+  }
+
+  const broadcastMessage = data => {
+    socket.emit('NEW__MESSAGE', data);
   }
 
   // const emitTyping = (info) => {
@@ -28,22 +35,17 @@ export default store => {
   //   socket.emit('stoped-typing', info);
   // }
   //
-  // const saveMessage = (msgInfo) => {
-  //   socket.emit('new-message', msgInfo);
-  // }
-  //
-  // const getMessages = (address) => {
-  //   socket.emit('get-messages', address);
-  // }
   //
   //
-  // const state = store.getState();
-  // const token = state.user.token
+  //
 
-  // if (token) {
-  //   const { email, address } = state.user.details;
-  //   connect(email, address);
-  // }
+  const state = store.getState();
+  const token = state.user.token
+
+  if (token) {
+    const { username, address } = state.user.details;
+    connect({details:{username, address}});
+  }
 
   return next => action => {
     switch (action.type) {
@@ -54,12 +56,12 @@ export default store => {
         console.log(action);
         disconnect(action.data)
         break;
-      // case 'SOCKET__MESSAGE':
-      //   saveMessage(action.payload)
-      //   break;
-      // case 'GET__MESSAGES':
-      //   getMessages(action.payload.address)
-      //   break;
+      case 'SOCKET__MESSAGE':
+        broadcastMessage(action.data)
+        break;
+      case 'SOCKET__GET__MESSAGES':
+        getMessages(action.data)
+        break;
       // case 'IS_TYPING':
       //   emitTyping(action.payload)
       //   break;
