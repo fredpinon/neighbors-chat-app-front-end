@@ -3,7 +3,6 @@ import User from './User';
 import _ from 'underscore';
 
 class ChatUsersList extends Component {
-  // users={this.props.usersInfo} user={this.props.userInfo}
   renderUsers = () => {
     let usersObj = this.props.users;
     return _

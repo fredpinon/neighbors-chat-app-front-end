@@ -14,7 +14,7 @@ const user = (state = {}, action) => {
         }
       }
     case 'USER_DELETED_ACCOUNT':
-    return {}
+      return {}
     default:
       return state;
   }

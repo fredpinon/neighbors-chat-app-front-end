@@ -4,6 +4,8 @@ const messages = (state = [], action) => {
       return action.data
     case 'GET-MESSAGES':
       return action.data
+    case 'USER_DELETED_ACCOUNT':
+      return {}
     default:
       return state;
   }
