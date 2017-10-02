@@ -14,11 +14,11 @@ class NavBarButtons extends Component {
     logoutUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
-      const {username, fname, lname, address} = this.props.userInfo;
+      const {username, fname, lname, address} = this.props.userInfo.details;
       const payload = {username, fname, lname, address};
+      this.props.dispatchSocketStoppedTyping(payload);
       this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchLogOut(this.props.userInfo);
-      this.props.dispatchSocketStoppedTyping(payload);
     });
   }
 
@@ -27,11 +27,11 @@ class NavBarButtons extends Component {
     deleteUser(this.props.userInfo.details.username)
     .then(data => data.json())
     .then(data => {
-      const {username, fname, lname, address} = this.props.userInfo;
+      const {username, fname, lname, address} = this.props.userInfo.details;
       const payload = {username, fname, lname, address};
+      this.props.dispatchSocketStoppedTyping(payload);
       this.props.dispatchSocketDisconnect(this.props.userInfo.details.address);
       this.props.dispatchDeleteUser(this.props.userInfo);
-      this.props.dispatchSocketStoppedTyping(payload);
     });
   }
 
