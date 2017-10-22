@@ -8,7 +8,7 @@ This is the front-end for my neighbors chat app. The back end can be found [here
 * Run `cd bubble`
 * Run `npm install`
 * Run `npm start`
-* The back-end and MongoDB need to be running
+* Note: the back-end and MongoDB need to be running
 
 ## Tech Stack
 * React & Redux
