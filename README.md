@@ -1,4 +1,4 @@
-# neighbors-chat-app-back-end
+# neighbors-chat-app-font-end
 
 ## Description
 This is the front-end for my neighbors chat app. The back end can be found [here](https://github.com/fredpinon/neighbors-chat-app-back-end). The app allows users to find out who is active in their building, sign up and join the building's chat room.
