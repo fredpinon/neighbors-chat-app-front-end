@@ -1,4 +1,4 @@
-# Bubble: neighbours-chat-app-front-end
+# Bubble: front-end
 
 ## Description
 This app allows users to check for active users in their building, sign up and join the building's chat room. The back end for this app lives in a separate repo and can be found [here](https://github.com/fredpinon/neighbors-chat-app-back-end). 
