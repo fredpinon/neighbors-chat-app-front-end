@@ -1,16 +1,21 @@
-# Bubble _ neighbors-chat-app _ front-end
+# Bubble: neighbours-chat-app-front-end
 
 ## Description
-This is the front-end for my neighbors chat app. The back end can be found [here](https://github.com/fredpinon/neighbors-chat-app-back-end). The app allows users to find out who is active in their building, sign up and join the building's chat room.
+This app allows users to check for active users in their building, sign up and join the building's chat room. The back end for this app lives in a separate repo and can be found [here](https://github.com/fredpinon/neighbors-chat-app-back-end). 
+
+## App Screenshots
 
 ## Installation
-* Clone this Repo and cd into it
+* Clone this repo and cd into it
 * Run `cd bubble`
 * Run `npm install`
 * Run `npm start`
-* Note: the back-end and MongoDB need to be running
+* Clone the [back-end](https://github.com/fredpinon/neighbors-chat-app-back-end) repository and follow installation instructions
 
 ## Tech Stack
 * [React](https://reactjs.org/)
 * [Redux](http://redux.js.org/)
 * [Socket.io](https://socket.io/)
+
+## License
+Bubble is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) license.
