@@ -1,4 +1,4 @@
-# neighbors-chat-app-font-end
+# Bubble _ neighbors-chat-app _ front-end
 
 ## Description
 This is the front-end for my neighbors chat app. The back end can be found [here](https://github.com/fredpinon/neighbors-chat-app-back-end). The app allows users to find out who is active in their building, sign up and join the building's chat room.
@@ -11,5 +11,6 @@ This is the front-end for my neighbors chat app. The back end can be found [here
 * Note: the back-end and MongoDB need to be running
 
 ## Tech Stack
-* React & Redux
-* Socket.io
+* [React](https://reactjs.org/)
+* [Redux](http://redux.js.org/)
+* [Socket.io](https://socket.io/)
