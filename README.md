@@ -5,7 +5,12 @@ This app allows you to check for active users in your building, sign up and join
 
 ## App Screenshots
 
+![image1](./bubble/images/image1.png "Home Screen")
+![image2](./bubble/images/image2.png "Login")
+![image3](./bubble/images/image3.png "")
+
 ## Installation
+
 * Clone this repo and cd into it
 * Run `cd bubble`
 * Run `npm install`
